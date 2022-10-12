@@ -1,8 +1,10 @@
+import random
+
 print("=================================")
 print("Bem vindo ao jogo de adivinhacao!")
 print("=================================")
 
-numeric_secret = 42
+numeric_secret = round(random.random() * 100)
 
 numeric_attempt = 3
 round_game = 1
@@ -28,6 +30,5 @@ for round_game in range(1, numeric_attempt + 1):
             print("Maior que o numero do sorteio")
         elif numeric_minor:
             print("O numero e o menor que sorteio")
-    round_game += 1
 
 print("Fim do jogo!")
