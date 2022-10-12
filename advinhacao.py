@@ -7,7 +7,8 @@ numeric_secret = 42
 numeric_attempt = 3
 round_game = 1
 
-while round_game <= numeric_attempt:
+# while round_game <= numeric_attempt:
+for round_game in range(1, numeric_attempt + 1):
     print("rodada {}, numero de tentativas {}".format(round_game, numeric_attempt))
     numeric_user = int(input("Digite um o seu numero: "))
     accept = numeric_secret == numeric_user
