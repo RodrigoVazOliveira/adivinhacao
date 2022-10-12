@@ -5,9 +5,20 @@ print("Bem vindo ao jogo de adivinhacao!")
 print("=================================")
 
 numeric_secret = round(random.randrange(1, 101))
-
 numeric_attempt = 3
 round_game = 1
+points = 1000
+
+print("Qual o nivel de dificuldade?")
+print("(1) Facil \n(2) Medio \n(3) Dificil")
+level = int(input("Escolha o nivel: "))
+
+if level == 1:
+    numeric_attempt = 20
+elif level == 2:
+    numeric_attempt = 10
+else:
+    numeric_attempt = 5
 
 # while round_game <= numeric_attempt:
 for round_game in range(1, numeric_attempt + 1):
@@ -23,12 +34,15 @@ for round_game in range(1, numeric_attempt + 1):
 
     print("Voce digitou ", numeric_user)
     if accept:
-        print("Voce acertou!")
+        print("Voce acertou! Sua pontuacao total e de {}".format(points))
         break
     else:
         if numeric_great:
             print("Maior que o numero do sorteio")
         elif numeric_minor:
             print("O numero e o menor que sorteio")
+        points_loser = abs(numeric_secret - numeric_user)
+        points -= points_loser
 
+print("Sua pontuacao foi de {}".format(points))
 print("Fim do jogo!")
