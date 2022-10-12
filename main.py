@@ -1,16 +1,15 @@
-# This is a sample Python script.
+import advinhacao
+import user_system
 
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+print("========================================")
+print("========== Bem vindo ===================")
+print("========================================")
 
+print("Escolha o jogo")
+print("(1) Adivinhacao\n(2) Verificar usuario do sistema")
+number_game = int(input("Por favor, digite a sua escolha: "))
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
-
-
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+if number_game == 1:
+    advinhacao.advinha()
+elif number_game == 2:
+    user_system.check_user()
