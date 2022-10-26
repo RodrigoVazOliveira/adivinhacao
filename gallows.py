@@ -17,8 +17,8 @@ def game():
             if letter.casefold() == attemped_letter.casefold():
                 letteres_accepted[index] = letter
             index = index + 1
-
-        print("Voce acertou as seguintes posicoes: {}".format(letteres_accepted))
+        letter_not_accepted = str(letteres_accepted.count("_"))
+        print("Voce acertou as seguintes posicoes {} e faltam {}".format(letteres_accepted, letter_not_accepted))
 
     print('Fim de jogo')
 
