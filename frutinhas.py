@@ -18,6 +18,7 @@ def check_index_fruits():
     else:
         print("Desculpa, a {} não está na lista frutas".format(fruits_search))
 
+
 def main_program():
     print("| =================== BEM VINDO ==================|")
     print("1. Consultar uma fruta.")
