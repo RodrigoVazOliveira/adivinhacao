@@ -4,17 +4,21 @@ def game():
     print('*************************************************************')
 
     word_secret = "banana"
+    letteres_accepted = ["_","_","_","_", "_", "_"]
     ingallows = False
     accepted = False
 
+    print(letteres_accepted)
     while not ingallows and not accepted:
         attemped_letter = input('Por digite uma letra ')
         attemped_letter.strip()
         index = 0
         for letter in word_secret:
             if letter.casefold() == attemped_letter.casefold():
-                print("Encontrei a letra {}  na posicao {}".format(letter, index))
+                letteres_accepted[index] = letter
             index = index + 1
+
+        print("Voce acertou as seguintes posicoes: {}".format(letteres_accepted))
 
     print('Fim de jogo')
 
