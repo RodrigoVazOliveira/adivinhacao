@@ -1,10 +1,24 @@
+import random
+
+
+def get_word_secrets():
+    words = []
+    with open("words.txt", "r") as file:
+        for line in file:
+            words.append(line.strip())
+
+    number_word = random.randrange(0, len(words))
+
+    return words[number_word]
+
+
 def game():
     print('*************************************************************')
     print('***************** Bem vindo ao jogo da forca ****************')
     print('*************************************************************')
 
-    word_secret = "BANANA"
-    letteres_accepted = ["_", "_", "_", "_", "_", "_"]
+    word_secret = get_word_secrets().upper()
+    letteres_accepted = ["_" for letter in word_secret]
     ingallows = False
     accepted = False
     errors = 0
@@ -21,6 +35,7 @@ def game():
                 index = index + 1
         else:
             errors = errors + 1
+            print("Voce errou, numero de erros: {}".format(errors))
         letter_not_accepted = str(letteres_accepted.count("_"))
         print("Voce acertou as seguintes posicoes {} e faltam {}".format(letteres_accepted, letter_not_accepted))
         ingallows = errors == 6
