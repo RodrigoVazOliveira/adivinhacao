@@ -12,21 +12,41 @@ def get_word_secrets():
     return words[number_word]
 
 
-def game():
+def print_welcome():
     print('*************************************************************')
     print('***************** Bem vindo ao jogo da forca ****************')
     print('*************************************************************')
 
+
+def verify_user_wins_or_loser(accepted):
+    if accepted:
+        print("Voce ganhou")
+    else:
+        print("Voce perdeu")
+
+
+def init_words_accepteds(word_secret):
+    return ["_" for letter in word_secret]
+
+
+def get_word_user():
+    attemped_letter = input('Por digite uma letra ')
+    attemped_letter = attemped_letter.strip().upper()
+
+    return attemped_letter
+
+
+def game():
+    print_welcome()
     word_secret = get_word_secrets().upper()
-    letteres_accepted = ["_" for letter in word_secret]
+    letteres_accepted = init_words_accepteds(word_secret)
     ingallows = False
     accepted = False
     errors = 0
 
     print(letteres_accepted)
     while not ingallows and not accepted:
-        attemped_letter = input('Por digite uma letra ')
-        attemped_letter = attemped_letter.strip().upper()
+        attemped_letter = get_word_user()
         index = 0
         if attemped_letter in word_secret:
             for letter in word_secret:
@@ -41,10 +61,7 @@ def game():
         ingallows = errors == 6
         accepted = "_" not in letteres_accepted
 
-    if accepted:
-        print("Voce ganhou")
-    else:
-        print("Voce perdeu")
+    verify_user_wins_or_loser(accepted)
     print('Fim de jogo')
 
 
